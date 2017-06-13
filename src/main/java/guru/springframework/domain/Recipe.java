@@ -1,26 +1,47 @@
 package guru.springframework.domain;
 
+import javax.persistence.*;
+
+/**
+ * Created by jt on 6/13/17.
+ */
+@Entity
 public class Recipe {
 
-    private String descripton;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String description;
     private Integer prepTime;
     private Integer cookTime;
     private Integer servings;
     private String source;
     private String url;
     private String directions;
-
     //todo add
-    //private Difficulty dificulty
+    //private Difficulty difficulty;
+
+    @Lob
     private Byte[] image;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
-    public String getDescripton() {
-        return descripton;
+    public Long getId() {
+        return id;
     }
 
-    public void setDescripton(String descripton) {
-        this.descripton = descripton;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Integer getPrepTime() {
