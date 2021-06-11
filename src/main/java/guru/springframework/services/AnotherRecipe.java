@@ -9,4 +9,9 @@ public class AnotherRecipe implements RecipeService{
     public Set<Recipe> getRecipes() {
         return null;
     }
+
+    @Override
+    public Recipe findById(Long l) {
+        return null;
+    }
 }
