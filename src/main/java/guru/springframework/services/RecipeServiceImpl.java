@@ -66,4 +66,8 @@ public class RecipeServiceImpl implements RecipeService {
         return recipeOptional.get();
     }
 
+    @Override
+    public void deleteById(Long idToDelete) {
+        recipeRepository.deleteById(idToDelete);
+    }
 }
